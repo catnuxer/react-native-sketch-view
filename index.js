@@ -1,5 +1,5 @@
 
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { 
   requireNativeComponent, 
   View,
@@ -7,6 +7,7 @@ import {
   findNodeHandle,
   DeviceEventEmitter 
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 class SketchView extends Component {
   constructor(props) {
@@ -16,18 +17,15 @@ class SketchView extends Component {
   }
 
   onChange(event) {
-    console.log('save event: ',event.nativeEvent);
+    console.log('onChange: ',event.nativeEvent);
     if (event.nativeEvent.type === "onSaveSketch") {
-
-      if (!this.props.onSaveSketch) {
-        return;
-      }
-
-      this.props.onSaveSketch({
+      const data = {
         localFilePath: event.nativeEvent.event.localFilePath,
         imageWidth: event.nativeEvent.event.imageWidth,
         imageHeight: event.nativeEvent.event.imageHeight
-      });
+      }
+      if (!this.props.onSaveSketch) return data;
+      this.props.onSaveSketch(data);
     }
   }
 
