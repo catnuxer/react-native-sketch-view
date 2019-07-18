@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Tools/SketchView.h"
-#import "Tools/SketchFile.h"
+#import "SketchView.h"
+#import "SketchFile.h"
 
 @interface SketchViewContainer : UIView
 
