@@ -5,7 +5,7 @@
 #import <React/RCTViewManager.h>
 #endif
 
-#import "SketchViewContainer.h"
+#import "SketchView/SketchViewContainer.h"
 
 @interface RNSketchViewManager : RCTViewManager
 
